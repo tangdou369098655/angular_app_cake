@@ -10,11 +10,18 @@ import {GlobalVariable} from '../../globals';
 })
 export class IndexComponent implements OnInit {
 private carouselItems = [];
-private newArrivalItems =[];
-private topSaleItems = [];
-private recommendedItems = [];
-private piclist=[1,2,3,4];
-private imgurl=GlobalVariable.base_path
+private product =[];
+private pics = [];
+private kinds = [];
+private imgurl=GlobalVariable.base_path;
+private product1 =[];
+private product2 =[];
+private product3 =[];
+private product4 =[];
+private product5 =[];
+private index1=0;
+private kinds1 =[];
+private productAll =[this.product1,this.product2,this.product3,this.product4,this.product5];
 //轮播图广告的选项
 private slideOpts={
   initialSlide:0,
@@ -30,20 +37,34 @@ private mySlides:IonSlides;
 
   ngOnInit() {
     //初始化时候，异步请求服务器端的首页数据
-    let url='http://www.codeboy.com/data/product/index.php';
+    let url=GlobalVariable.base_path+'index/all';
     this.http.get(url).subscribe((res:any)=>{
       console.log(res)
       this.carouselItems=res.carouselItems;
-      this.newArrivalItems=res.newArrivalItems;
-      this.topSaleItems=res.topSaleItems;
-      this.recommendedItems=res.recommendedItems;
-      console.log(this.carouselItems,this.newArrivalItems,this.recommendedItems,this.topSaleItems)
+      this.product=res.product;
+      this.pics=res.pics;
+      this.kinds=res.kinds;
+      this.product1=res.product.slice(0,8);
+      this.product2=res.product.slice(8,16);
+      this.product3=res.product.slice(16,24);
+      this.product4=res.product.slice(24,32);
+      this.product5=res.product.slice(32,40);
+      this.kinds1=res.kinds.slice(0,5);
+      console.log(this.product1)
+      this.product_all=[
+        res.product.slice(0,8),
+        res.product.slice(8,16),
+        res.product.slice(16,24),
+        res.product.slice(24,32),
+        res.product.slice(32,40),
+      ]
+      console.log(this.product_all)
       // 开始轮播广告的自动播放
-      console.log(this.mySlides)
-      console.log(111)
-      console.log(GlobalVariable.base_path)
       this.mySlides.startAutoplay();
     })
   }
+  getKeys(item) {
+    return Object.keys(item);
+   }
 
 }
