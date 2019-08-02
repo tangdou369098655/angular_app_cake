@@ -30,6 +30,7 @@
   <!-- 导航列表图片2 -->
   <!-- 首页循环商品列表1 -->
   <div *ngFor="let a of kinds1;let i=index" >
+    <img [src]="imgurl+a.Mimg" alt="">
     <!-- 1F商品1 -->
     <!-- 1楼商品标题列1 -->
     <ion-item ng-init="index1=$index">
