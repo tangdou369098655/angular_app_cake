@@ -1,0 +1,61 @@
+<!-- 页头 -->
+<ion-header>
+  <ion-toolbar>
+    <img src="http://localhost:3000/images/index/tdd2.png" slot="start" width="30%">
+    <ion-searchbar slot="end">
+
+    </ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+<!-- 页面主体 slides+grid+card -->
+<ion-content>
+  <!-- 轮播广告1 pager="true"控制圆点-->
+  <ion-slides #mySlides pager="true" [options]="slideOpts">
+    <ion-slide *ngFor="let c of carouselItems">
+      <img [src]="'http://www.codeboy.com/'+c.img" alt="">
+    </ion-slide>
+  </ion-slides>
+  <!-- 轮播广告2-->
+  <!-- 导航列表图片1 -->
+  <ion-grid>
+    <ion-row>
+      <ion-col size="3"  *ngFor="let i of piclist">
+        <div class="icon-box">
+          <img src="http://localhost:3000/images/index/蓝妃儿-3.jpg" alt="">
+          <p>{{i}}</p>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <!-- 导航列表图片2 -->
+  <!-- 1F商品1 -->
+   <!-- 1楼商品标题列1 -->
+  <ion-item>
+      <img [src]="imgurl+'images/index/message-three.png'" alt="" slot="start">
+      <ion-label>
+        <h2>首页推荐</h2>
+      </ion-label>
+  </ion-item>
+  <!-- 1楼商品标题列2 -->
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" *ngFor="let p of recommendedItems"   no-padding>
+        <ion-card  no-padding no-margin>
+          <img [src]="'http://www.codeboy.com/'+p.pic" alt="">
+          <ion-card-header>
+            <ion-card-title>{{p.title}}</ion-card-title>
+            <ion-card-subtitle>{{p.details}}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            价格:{{p.price | currency:'￥'}}
+            <ion-button>查看详情</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+  <!-- 1F商品2 -->
+  <!-- 2F商品 -->
+  <!-- 3F商品 -->
+</ion-content>

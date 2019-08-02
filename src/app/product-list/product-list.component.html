@@ -1,0 +1,41 @@
+<!-- 页头1 -->
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-searchbar slot="end"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+<!-- 页头2 -->
+<!-- 内容区域1 -->
+<ion-content>
+  <!-- 商品列表1 -->
+  <ion-card>
+    <ion-item *ngFor="let p of productlist">
+      <ion-thumbnail slot="start">
+        <img [src]="'http://www.codeboy.com/'+p.pic">
+      </ion-thumbnail>
+      <ion-label>
+        <h5>{{p.title}}</h5>
+        <p>价格：{{p.price | currency:'￥'}}</p>
+      </ion-label>
+      <ion-button [routerLink]="'product-detail/'+p.lid" slot="end">详情</ion-button>
+    </ion-item>
+  </ion-card>
+  <!-- 商品列表2 -->
+
+
+  <!-- 没有更多商品了1 -->
+  <ion-button *ngIf="!hasMore" expand="block" disabled="true">没有更多商品了</ion-button>
+  <!-- 没有更多商品了2 -->
+  <!-- 无限滚动1 -->
+  <ion-infinite-scroll  threshold="50px" (ionInfinite)="loadMore(myScroll)" #myScroll>
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="加载中...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+  <!-- 无限滚动2 -->
+</ion-content>
+<!-- 内容区域2 -->
