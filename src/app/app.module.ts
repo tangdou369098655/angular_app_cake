@@ -16,6 +16,7 @@ import { MainComponent } from './main/main.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import {HttpClientModule} from '@angular/common/http'
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { ServerUrlPipe } from './server-url.pipe';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     CartComponent,
     MainComponent,
     NotFoundComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    ServerUrlPipe
   ],
   entryComponents: [],
 

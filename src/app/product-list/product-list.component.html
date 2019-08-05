@@ -14,7 +14,7 @@
 <ion-content>
   <!-- 商品列表1 -->
   <ion-card>
-    <ion-item *ngFor="let p of productlist">
+    <ion-item *ngFor="let p of productlist" detail [href]="'/product-detail/'+p.lid">
       <ion-thumbnail slot="start">
         <img [src]="'http://www.codeboy.com/'+p.pic">
       </ion-thumbnail>
@@ -22,7 +22,7 @@
         <h5>{{p.title}}</h5>
         <p>价格：{{p.price | currency:'￥'}}</p>
       </ion-label>
-      <ion-button [routerLink]="'product-detail/'+p.lid" slot="end">详情</ion-button>
+      <ion-button slot="end">详情</ion-button>
     </ion-item>
   </ion-card>
   <!-- 商品列表2 -->

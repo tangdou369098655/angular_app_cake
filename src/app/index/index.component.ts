@@ -21,7 +21,7 @@ private product4 =[];
 private product5 =[];
 private index1=0;
 private kinds1 =[];
-private productAll =[this.product1,this.product2,this.product3,this.product4,this.product5];
+// private productAll =[this.product1,this.product2,this.product3,this.product4,this.product5];
 //轮播图广告的选项
 private slideOpts={
   initialSlide:0,
@@ -51,14 +51,6 @@ private mySlides:IonSlides;
       this.product5=res.product.slice(32,40);
       this.kinds1=res.kinds.slice(0,5);
       console.log(this.product1)
-      this.product_all=[
-        res.product.slice(0,8),
-        res.product.slice(8,16),
-        res.product.slice(16,24),
-        res.product.slice(24,32),
-        res.product.slice(32,40),
-      ]
-      console.log(this.product_all)
       // 开始轮播广告的自动播放
       this.mySlides.startAutoplay();
     })
